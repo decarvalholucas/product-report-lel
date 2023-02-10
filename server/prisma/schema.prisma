@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+model Product {
+  id          String @id @default(cuid())
+  productId   String
+  productName String
+  code        String
+  reference   String
+  releaseDate DateTime
+  division String
+  collection String
+  subCollection String
+  type String
+  category String 
+  tissue String
+  tissueType String
+  bulge String
+  pocket String
+  colorCategory String
+  stamp String
+  costPrice String
+  salePrice String
+  createdAt DateTime @default(now())
+}
