@@ -21,12 +21,15 @@ async function start() {
     return { product };
   });
 
-  fastify.get("/:productId", async (request) => {
+  fastify.get("/:productId", async ({ params }, reply) => {
     const product = await prisma.product.findMany({
       where: {
-        productId: request.productId
+        productId: params.productId
       }
     })
+
+    return { product }
+
   });
 
   await fastify.listen({ port: 3333 });

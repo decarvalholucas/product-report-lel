@@ -1,0 +1,10 @@
+$corPadrao: yellow;
+
+
+.asdasdassad {
+    background-color: red;
+    &:hover {
+        background-color:$corPadrao;
+        color: #FFF;
+    }
+}

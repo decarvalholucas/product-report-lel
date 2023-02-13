@@ -1,0 +1,15 @@
+.productName {
+  width: 100%;
+  cursor: pointer;
+  border-top: 1px solid #cecece;
+  padding: 20px 10px;
+  color: #3f3f40;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  transition: 0.2s;
+  &:hover {
+    background-color: #e3e8ff;
+    color: blue;
+  }
+}

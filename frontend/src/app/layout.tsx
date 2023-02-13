@@ -1,18 +1,20 @@
-import './globals.css'
+import "../styles/global.scss";
+
+import { BoxContainer } from "../components/BoxContainer";
+import { Header } from "../components/Header";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>{children}</body>
+    <html lang="pt-br">
+      <head></head>
+      <body>
+        <Header />
+        <BoxContainer>{children}</BoxContainer>
+      </body>
     </html>
-  )
+  );
 }
