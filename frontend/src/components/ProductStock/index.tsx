@@ -2,26 +2,7 @@
 
 import { ReactNode } from "react";
 
-interface Props {
-  product: [
-    {
-      productName: string;
-      items: [
-        {
-          sellers: [
-            {
-              commertialOffer: {
-                AvailableQuantity: number;
-              };
-            }
-          ];
-        }
-      ];
-    }
-  ];
-}
-
-export const ProductStock: React.FC<Props> = ({ product }) => {
+export const ProductStock = ({ product }: VtexProduct) => {
   let stkTotal = 0;
 
   product.map((p) => {

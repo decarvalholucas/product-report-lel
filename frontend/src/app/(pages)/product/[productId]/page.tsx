@@ -5,6 +5,7 @@ import style from "./style.module.scss";
 
 import { ProductStock } from "@/components/ProductStock";
 import { ProductDescription } from "@/components/ProductDescription";
+import Ga4 from "@/components/Ga4";
 
 interface ProductProps {
   params: {
@@ -34,13 +35,16 @@ export default async function Product({ params }: ProductProps) {
                 src={productInVtex[0].items[0].images[0].imageUrl}
                 alt={item.productName}
                 title={item.productName}
-                width={500}
-                height={500}
+                width={400}
+                height={400}
               />
             </div>
 
             <div className={style.productInfo}>
               <ProductStock product={productInVtex} />
+
+              {/* @ts-expect-error Async Server Component (remover depois) */}
+              <Ga4 product={productInVtex} />
 
               <div className={style.container}>
                 <h3>{item.productName}</h3>
@@ -48,31 +52,13 @@ export default async function Product({ params }: ProductProps) {
                   <b>ID:</b> {item.productId}
                 </div>
               </div>
-              <div className={style.container}>
-                <h3 className={style.ctr}>CTR</h3>
-                <div>34%</div>
-              </div>
-              <div className={style.container}>
-                <h3 className={style.ctr}>Taxa de Devolução</h3>
-                <div>
-                  Percentual: <b>5%</b>
-                </div>
-                <div>
-                  Principal motivo: <b>Transparência</b>
-                </div>
-              </div>
-              <div>{item.code}</div>
-              <div>{item.reference}</div>
-              <div>{item.division}</div>
-              <div>{item.collection}</div>
-              <div>{item.subCollection}</div>
-              <div>{item.type}</div>
+  
               <ProductDescription product={productInVtex} />
             </div>
           </div>
         );
       })}
-      <Link href={"/"}>Voltar</Link>
+      <Link href={"/productList"}>Voltar</Link>
     </div>
   );
 }

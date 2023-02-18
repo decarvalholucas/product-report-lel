@@ -1,15 +1,19 @@
 .product {
   display: flex;
   & > .productImage {
-    width: 50%;
+    width: 49%;
     margin: 0 auto;
     padding: 10px;
     text-align: center;
+    & > img {
+      max-width: 100%;
+    }
   }
   & > .productInfo {
-    width: 50%;
+    width: 49%;
     margin: 0 auto;
     padding: 10px;
+    border: 1px solid;
     & > .container {
       box-shadow: 0px 0px 3px 0px #afafaf;
       background: white;

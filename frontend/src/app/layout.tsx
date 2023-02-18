@@ -1,7 +1,8 @@
 import "../styles/global.scss";
 
 import { BoxContainer } from "../components/BoxContainer";
-import { Header } from "../components/Header";
+import BoxHeader from "../components/BoxHeader ";
+import Header from "../components/Header";
 
 export default function RootLayout({
   children,
@@ -12,8 +13,13 @@ export default function RootLayout({
     <html lang="pt-br">
       <head></head>
       <body>
-        <Header />
-        <BoxContainer>{children}</BoxContainer>
+        <div className="content">
+          <Header />
+          <BoxContainer>
+            <BoxHeader />
+            <div className="boxContainerChildren">{children}</div>
+          </BoxContainer>
+        </div>
       </body>
     </html>
   );
