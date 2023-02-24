@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const path = require('path');
+const path = require("path");
 
 const nextConfig = {
   experimental: {
@@ -9,14 +9,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'lojalivreeleve.vteximg.com.br',
+        protocol: "https",
+        hostname: "lojalivreeleve.vteximg.com.br",
       },
     ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, "styles")],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

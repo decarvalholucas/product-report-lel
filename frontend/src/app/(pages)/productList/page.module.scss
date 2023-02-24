@@ -4,25 +4,3 @@
   padding: 10px 0;
   font-weight: bold;
 }
-.search {
-  margin-bottom: 30px;
-  display: flex;
-  & > input {
-    padding: 18px;
-    box-shadow: none;
-    width: 35%;
-    border: 1px solid #cecece;
-    font-size: 22px;
-    background-color: #FFF;
-  }
-  & > .searchIcon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start center;
-    border: 1px solid #cecece;
-    border-left: none;
-    padding: 0 20px;
-    cursor: pointer;
-  }
-}

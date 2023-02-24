@@ -6,6 +6,7 @@ import style from "./style.module.scss";
 import { ProductStock } from "@/components/ProductStock";
 import { ProductDescription } from "@/components/ProductDescription";
 import Ga4 from "@/components/Ga4";
+import config from "@/config/server";
 
 interface ProductProps {
   params: {
@@ -15,7 +16,7 @@ interface ProductProps {
 
 export default async function Product({ params }: ProductProps) {
   const response = await fetch(
-    `http://192.168.0.111:3333/vtex/search/product?id=${params.productId}`,
+    `${config.SERVER_URL}/vtex/search/productById?id=${params.productId}`,
     {
       cache: "no-store",
     }
