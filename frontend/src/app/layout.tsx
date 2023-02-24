@@ -1,7 +1,7 @@
 import "../styles/global.scss";
 
 import { BoxContainer } from "../components/BoxContainer";
-import BoxHeader from "../components/BoxHeader ";
+import BoxHeader from "../components/BoxHeader";
 import Header from "../components/Header";
 
 export default function RootLayout({
