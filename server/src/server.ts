@@ -2,7 +2,8 @@ import Fastify from "fastify";
 import { PrismaClient } from "@prisma/client";
 import cors from "@fastify/cors";
 import { vtexSearchRoutes } from "./routes/vtex/search";
-import { vtexProductRoutes } from "./routes/vtex/product";
+import { vtexProductByIdRoutes } from "./routes/vtex/productById";
+import { vtexProductByFullTextRoutes } from "./routes/vtex/productByFullText";
 
 const prisma = new PrismaClient({
   log: ["query"],
@@ -36,7 +37,8 @@ async function start() {
   });*/
 
   fastify.register(vtexSearchRoutes);
-  fastify.register(vtexProductRoutes);
+  fastify.register(vtexProductByIdRoutes);
+  fastify.register(vtexProductByFullTextRoutes);
 
   await fastify.listen({ port: 3333, host: "192.168.0.111" });
 }
