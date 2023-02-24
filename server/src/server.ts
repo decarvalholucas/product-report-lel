@@ -1,6 +1,8 @@
 import Fastify from "fastify";
 import { PrismaClient } from "@prisma/client";
 import cors from "@fastify/cors";
+import { vtexSearchRoutes } from "./routes/vtex/search";
+import { vtexProductRoutes } from "./routes/vtex/product";
 
 const prisma = new PrismaClient({
   log: ["query"],
@@ -12,7 +14,7 @@ async function start() {
   });
 
   await fastify.register(cors, {
-    origin: true
+    origin: true,
   });
 
   fastify.get("/", async () => {
@@ -21,18 +23,22 @@ async function start() {
     return { product };
   });
 
-  fastify.get("/:productId", async ({ params }, reply) => {
+  /*fastify.get("/:productId", async ({ params }, reply) => {
+    console.log(params);
+
     const product = await prisma.product.findMany({
       where: {
-        productId: params.productId
-      }
-    })
+        productId: params.productId,
+      },
+    });
 
-    return { product }
+    return { product };
+  });*/
 
-  });
+  fastify.register(vtexSearchRoutes);
+  fastify.register(vtexProductRoutes);
 
-  await fastify.listen({ port: 3333 });
+  await fastify.listen({ port: 3333, host: "192.168.0.111" });
 }
 
 start();

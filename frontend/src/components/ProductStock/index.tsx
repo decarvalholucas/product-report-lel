@@ -1,15 +1,18 @@
 //import style from "./style.module.scss"
 
-import { ReactNode } from "react";
-
-export const ProductStock = ({ product }: VtexProduct) => {
+export const ProductStock = ({ product }: any) => {
   let stkTotal = 0;
 
-  product.map((p) => {
-    p.items.map((item) => {
+  product.product.map((p:any) => {
+    p.items.map((item:any) => {
       stkTotal += item.sellers[0].commertialOffer.AvailableQuantity;
     });
   });
 
-  return <div> Estoque: <b>{stkTotal}</b> </div>;
+  return (
+    <div>
+      {" "}
+      Estoque: <b>{stkTotal}</b>{" "}
+    </div>
+  );
 };

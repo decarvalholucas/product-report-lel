@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://192.168.0.111:3333",
+  baseURL:
+    "https://www.livreeleve.com.br/api/catalog_system/pub/products/search",
   headers: {
     "Content-Type": "application/json", //
   },
